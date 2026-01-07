@@ -6,6 +6,14 @@
     <title>Syed Hassan Ali | AI/ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          // *** IMPORTANT: REPLACE 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL KEY FROM EMAILJS DASHBOARD ***
+          emailjs.init("hIffET4BruF_KyuLT"); 
+       })();
+    </script>
+    
     <style>
         /* --- Reset & Base Styles --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -315,9 +323,8 @@
         }
         .footer-text { color: #888; font-size: 0.9rem; margin-top: 1rem; }
 
-        /* --- REFINED FLOATING BADGE (PERFECT ALIGNMENT) --- */
+        /* --- FLOATING BADGE --- */
         .floating-badge {
-	    /*pointer-events: auto;*/
             position: fixed;
             bottom: 30px; left: 30px;
             z-index: 1000;
@@ -325,50 +332,47 @@
             color: var(--color-orange);
             width: 60px; height: 60px;
             border-radius: 50%;
-            /* Flexbox ensures icon is always vertically centered */
             display: flex; align-items: center; 
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             border: 2px solid var(--color-orange);
             animation: float-badge 3s ease-in-out infinite;
-            overflow: hidden; /* Clips the text when collapsed */
+            overflow: hidden; 
         }
         
         .floating-badge:hover {
-            width: 270px; /* Exact width to fit text comfortably */
+            width: 270px; 
             border-radius: 40px; 
             background: var(--color-orange); 
             color: var(--color-white); 
             border-color: var(--color-white);
-	    animation-play-state: paused;
+            animation-play-state: paused;
         }
 
-        /* Icon Container: Fixed width to prevent jumping */
         .badge-icon-container {
-            width: 60px; /* Same as initial badge width */
+            width: 60px; 
             height: 60px;
             display: flex; 
             justify-content: center; 
             align-items: center;
-            flex-shrink: 0; /* Prevents icon from squishing */
+            flex-shrink: 0; 
         }
 
         .badge-icon-container i { 
-    	    will-change: transform;
+            will-change: transform;
             font-size: 1.5rem; 
             transition: transform 0.4s ease; 
         }
         .floating-badge:hover i { transform: rotate(360deg); }
 
-        /* Text: Flex item next to icon */
         .badge-text {
             white-space: nowrap; 
             opacity: 0; 
             font-weight: 700; 
             font-size: 0.95rem; 
-            transform: translateX(10px); /* Slight slide-in effect */
-            transition: all 0.3s ease 0.1s; /* Delay so it appears after width expands */
+            transform: translateX(10px); 
+            transition: all 0.3s ease 0.1s; 
         }
         .floating-badge:hover .badge-text { 
             opacity: 1; 
@@ -394,7 +398,6 @@
             .orbit-system { display: none; }
             .project-card { min-width: 85vw; }
             .cards-wrapper { padding-left: 2rem; padding-right: 2rem; }
-            /* Mobile adjustments for badge */
             .floating-badge { bottom: 20px; left: 20px; width: 50px; height: 50px; }
             .badge-icon-container { width: 50px; height: 50px; }
             .badge-icon-container i { font-size: 1.2rem; }
@@ -516,7 +519,7 @@
                     <div class="timeline-date">2019 - Present</div>
                     <h4 class="timeline-role">Freelance & Project Management</h4>
                     <span class="timeline-company">Fiverr, LinkedIn, Local Clients</span>
-		    <p class="timeline-desc"></p>
+                    <p class="timeline-desc"></p>
                     <p class="timeline-desc">• Delivered 1000+ freelance projects across Graphic design, AI and Python programming, maintaining 95%+ client satisfaction.</p>
                     <p class="timeline-desc">• Managed a small team of 3–5 freelancers to complete end-to-end AI/web development projects on a commission basis.</p> 
                     <p class="timeline-desc">• Secured clients via Fiverr, LinkedIn, and local networks, generating consistent monthly income.</p>
@@ -526,7 +529,7 @@
                     <div class="timeline-date">07/2024 - 08/2024</div>
                     <h4 class="timeline-role">AI / ML Internship</h4>
                     <span class="timeline-company">Ghulam Ishaq Khan Institute & Skylabs AI</span>
-		    <p class="timeline-desc"></p>
+                    <p class="timeline-desc"></p>
                     <p class="timeline-desc">• Developed and deployed ML models (CNNs, NLP with Transformers, GANs) through weekly sprints, completing 100% of assigned projects.</p>
                     <p class="timeline-desc">• Designed reinforcement-learning Flappy Bird agent with TensorFlow, achieving >90% success rate across 2,500 generations.</p>
                     <p class="timeline-desc">• Built Kaggle solar forecasting pipeline (XGBoost, LightGBM, LSTM), securing Top 30th with a 12% MAE improvement.</p>
@@ -536,7 +539,7 @@
                     <div class="timeline-date">09/2023 - 10/2023</div>
                     <h4 class="timeline-role">Embedded Systems Internship</h4>
                     <span class="timeline-company">National Institute of Electronics (NIE)</span>
-		    <p class="timeline-desc"></p>
+                    <p class="timeline-desc"></p>
                     <p class="timeline-desc">• Engineered an ESP-12F (ESP8266)-based fuel mileage tracker, integrating 2 sensors (Hall-effect + ultrasonic) with ±5% error.</p>
                     <p class="timeline-desc">• Implemented real-time data pipeline with Firebase Realtime DB, optimizing and enabling instant dashboard visualization.</p>
                     <p class="timeline-desc">• Programmed in Arduino C++, reducing sensor noise by 30% via calibration and filtering algorithms.</p>
@@ -546,7 +549,7 @@
                     <div class="timeline-date">01/2022 – 02/2022</div>
                     <h4 class="timeline-role">Network Security Internship</h4>
                     <span class="timeline-company">Pakistan Telecommunication Company Limited (PTCL)</span>
-		    <p class="timeline-desc"></p>
+                    <p class="timeline-desc"></p>
                     <p class="timeline-desc">• Supported SAP ECC Parking & Posting workflows, contributing to 20+ operations within Drawing & Disbursement Office.</p>
                     <p class="timeline-desc">• Analyzed network infrastructure, assisting in 2+ VLAN setups and reviewing routing/security protocols.</p>
                     <p class="timeline-desc">• Documented telecom operations, strengthening understanding of enterprise IT systems across 10+ PTCL branches.</p>
@@ -622,24 +625,24 @@
                 </div>
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form">
                 <div class="form-group">
-                    <input type="text" class="form-input" placeholder=" " required>
+                    <input type="text" name="user_name" class="form-input" placeholder=" " required>
                     <label class="form-label">Your Name</label>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-input" placeholder=" " required>
+                    <input type="email" name="user_email" class="form-input" placeholder=" " required>
                     <label class="form-label">Your Email</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-input" placeholder=" " required>
+                    <input type="text" name="subject" class="form-input" placeholder=" " required>
                     <label class="form-label">Subject</label>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-input" rows="1" placeholder=" " style="resize: none;" required></textarea>
+                    <textarea name="message" class="form-input" rows="1" placeholder=" " style="resize: none;" required></textarea>
                     <label class="form-label">Message</label>
                 </div>
-                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                <button type="submit" class="submit-btn" id="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
@@ -680,7 +683,7 @@
         }
         document.addEventListener('DOMContentLoaded', typeEffect);
 
-        // --- 3. PROJECT SLIDER LOGIC WITH CENTER DETECTION & BLINK ---
+        // --- 3. PROJECT SLIDER LOGIC ---
         const slider = document.getElementById('projectsSlider');
         const numbersContainer = document.getElementById('sliderNumbers');
         const cards = document.querySelectorAll('.project-card');
@@ -691,50 +694,34 @@
             number.classList.add('slider-number');
             number.textContent = index + 1; 
             
-            // CLICK EVENT: Center the card & blink BOTH
             number.addEventListener('click', () => {
                 const scrollPos = card.offsetLeft - (slider.offsetWidth / 2) + (card.offsetWidth / 2);
-                
-                slider.scrollTo({
-                    left: scrollPos,
-                    behavior: 'smooth'
-                });
+                slider.scrollTo({ left: scrollPos, behavior: 'smooth' });
 
-                // Reset Animations
                 number.classList.remove('blink-active');
                 card.classList.remove('flash-active');
-                
-                // Force Reflow
                 void number.offsetWidth;
                 void card.offsetWidth; 
-                
-                // Add Active Classes
                 number.classList.add('blink-active');
                 card.classList.add('flash-active');
-                
-                // Remove after animation ends
                 setTimeout(() => {
                     number.classList.remove('blink-active');
                     card.classList.remove('flash-active');
                 }, 800);
             });
-            
             numbersContainer.appendChild(number);
         });
 
         const numberEls = document.querySelectorAll('.slider-number');
 
-        // SCROLL LISTENER: Active State based on Center Proximity
         slider.addEventListener('scroll', () => {
             const sliderCenter = slider.scrollLeft + (slider.offsetWidth / 2);
-            
             let closestCardIndex = 0;
             let minDistance = Infinity;
 
             cards.forEach((card, index) => {
                 const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
                 const distance = Math.abs(sliderCenter - cardCenter);
-                
                 if (distance < minDistance) {
                     minDistance = distance;
                     closestCardIndex = index;
@@ -742,17 +729,48 @@
             });
 
             numberEls.forEach((num, index) => {
-                if (index === closestCardIndex) {
-                    num.classList.add('active');
-                } else {
-                    num.classList.remove('active');
-                }
+                if (index === closestCardIndex) { num.classList.add('active'); } 
+                else { num.classList.remove('active'); }
             });
         });
         
-        // Trigger scroll event once on load to highlight #1
         slider.dispatchEvent(new Event('scroll'));
 
+        // --- 4. NEW EMAILJS LOGIC FOR CONTACT FORM ---
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents page reload
+
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerHTML; // Save the icon HTML too
+            
+            // 1. Change button text to indicate loading
+            btn.innerText = 'Sending...';
+
+            // 2. Send the email via EmailJS
+            // *** IMPORTANT: REPLACE 'YOUR_SERVICE_ID' AND 'YOUR_TEMPLATE_ID' WITH ACTUAL CODES ***
+            emailjs.sendForm('service_ziutl0r', 'template_s98lili', this)
+                .then(function() {
+                    // 3. Success State
+                    btn.innerText = 'Message Sent!';
+                    btn.style.backgroundColor = '#4CAF50'; // Green background
+                    
+                    // Clear form fields
+                    document.getElementById('contact-form').reset();
+
+                    // Reset button style after 3 seconds
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.backgroundColor = ''; // Reset to default orange
+                    }, 3000);
+                    
+                }, function(error) {
+                    // 4. Error State
+                    console.log('FAILED...', error);
+                    btn.innerText = 'Error. Try Again.';
+                    btn.style.backgroundColor = '#f44336'; // Red background
+                    alert("Failed to send message. Please check the console.");
+                });
+        });
     </script>
 </body>
 </html>
