@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          // *** IMPORANT: REPLACE 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL KEY FROM EMAILJS ***
+          emailjs.init("hIffET4BruF_KyuLT"); 
+       })();
+    </script>
+    
     <style>
         /* --- 1. CORE & RESET & VARIABLES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,7 +47,6 @@
             --color-bg-secondary: #eaeaea;
             --color-text: #1a1a1a;
             --color-text-muted: #555555;
-            /* Orange stays the same or slightly darker for contrast if needed */
             --color-orange: #e65c00; 
             --color-card: #ffffff;
             --color-card-border: #d1d1d1;
@@ -94,7 +101,7 @@
         .debris {
             position: absolute;
             width: 8px; height: 8px;
-            background: var(--color-text); /* Debris changes color with theme */
+            background: var(--color-text);
             border-radius: 2px;
             pointer-events: none;
             z-index: 51;
@@ -218,19 +225,16 @@
         .video-overlay-grad {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Gradient adapts to theme to ensure text readability */
             background: linear-gradient(to bottom, rgba(5,5,5,0.4), var(--color-bg));
             z-index: 0;
         }
-        /* In light mode, we might want the video to be less harsh, but usually video is dark. 
-           We let the gradient fade into the light background. */
 
         /* --- 5. INTRO & BIO --- */
         .intro-section { 
             padding: 4rem 10% 4rem;
             text-align: center; position: relative; 
             z-index: 2;
-            background: var(--color-nav-bg); /* Use semi-transparent variable */
+            background: var(--color-nav-bg);
         }
         h1 {
             font-family: var(--font-head);
@@ -418,10 +422,10 @@
         /* --- FOOTER --- */
         footer { 
             text-align: center;
-            padding: 3rem; background: #000; /* Footer stays dark usually looks good, or use var(--color-bg-secondary) */
+            padding: 3rem; background: #000;
             border-top: 1px solid var(--color-card-border); position: relative; z-index: 2;
         }
-        [data-theme="light"] footer { background: #1a1a1a; } /* Force dark footer for light mode contrast */
+        [data-theme="light"] footer { background: #1a1a1a; }
         
         .footer-socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 1.5rem; }
         .footer-socials a { color: #666; font-size: 1.5rem; transition: all 0.3s ease; }
@@ -481,24 +485,28 @@
         </div>
 
         <div class="cards-wrapper" id="projectsSlider">
-            <div class="gallery-card logo" data-type="image" data-src="assets/design1.jpg">
-                <img src="assets/design1.jpg" alt="Work" class="card-img">
+            <div class="gallery-card docs" data-type="pdf" data-src="assets/monopoly.pdf">
+                <img src="assets/monopoly.png" alt="Work" class="card-img">
+                <div class="card-overlay"><span class="item-category">Doc</span><h3 class="item-title">Game Design</h3></div>
+            </div>
+            <div class="gallery-card logo" data-type="pdf" data-src="assets/hamoo.pdf">
+                <img src="assets/hamoo.png" alt="Work" class="card-img">
                 <div class="card-overlay"><span class="item-category">Identity</span><h3 class="item-title">Tech Brand</h3></div>
             </div>
             <div class="gallery-card poster" data-type="image" data-src="assets/design2.jpg">
-                <img src="assets/design2.jpg" alt="Work" class="card-img">
+                <img src="assets/more.png" alt="Work" class="card-img">
                 <div class="card-overlay"><span class="item-category">Editorial</span><h3 class="item-title">Music Fest</h3></div>
             </div>
             <div class="gallery-card docs" data-type="pdf" data-src="assets/brand-guidelines.pdf">
-                <img src="assets/pdf-thumbnail.jpg" alt="Work" class="card-img">
+                <img src="assets/more.png" alt="Work" class="card-img">
                 <div class="card-overlay"><span class="item-category">Doc</span><h3 class="item-title">Brand Guide</h3></div>
             </div>
             <div class="gallery-card logo" data-type="image" data-src="assets/design5.jpg">
-                <img src="assets/design5.jpg" alt="Work" class="card-img">
+                <img src="assets/more.png" alt="Work" class="card-img">
                 <div class="card-overlay"><span class="item-category">Identity</span><h3 class="item-title">Coffee Co.</h3></div>
             </div>
              <div class="gallery-card poster" data-type="image" data-src="assets/design6.jpg">
-                <img src="assets/design6.jpg" alt="Work" class="card-img">
+                <img src="assets/more.png" alt="Work" class="card-img">
                 <div class="card-overlay"><span class="item-category">Editorial</span><h3 class="item-title">Fashion</h3></div>
             </div>
         </div>
@@ -540,104 +548,103 @@
             <div class="contact-text">
                 <h2>Let's Build <br><span>The Future.</span></h2>
                 <div class="contact-links">
-                    <a href="mailto:your-email@example.com" class="c-link"><i class="fas fa-envelope"></i> your-email@example.com</a>
-                    <a href="#" class="c-link"><i class="fas fa-phone"></i> +92 300 1234567</a>
-                    <a href="#" class="c-link"><i class="fas fa-map-marker-alt"></i> Mardan, Pakistan</a>
+                    <a href="mailto:imsyedhassanali@gmail.com" class="c-link"><i class="fas fa-envelope"></i> imsyedhassanali[at]gmail.com</a>
+                    <a href="https://wa.me/+923116593569" class="c-link"><i class="fas fa-phone"></i> +92-311-6593569</a>
+                    <a href="https://maps.app.goo.gl/q7hcRPDcKoP1SEhj9" class="c-link"><i class="fas fa-map-marker-alt"></i> Mardan, Pakistan</a>
                 </div>
             </div>
-            <form class="design-form">
-                <div class="form-group"><input type="text" class="form-input" placeholder="Name" required></div>
-                <div class="form-group"><input type="email" class="form-input" placeholder="Email" required></div>
-                <div class="form-group"><input type="text" class="form-input" placeholder="Project Type" required></div>
-                <button type="submit" class="submit-btn">Launch Project</button>
+            
+            <form class="design-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="user_name" class="form-input" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="user_email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="project_type" class="form-input" placeholder="Project Type" required>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">Launch Project</button>
             </form>
+            
         </div>
     </section>
 
     <div class="lightbox" id="lightbox">
-        <div class="close-lightbox">&times;</div>
+        <div class="close-lightbox">×</div>
         <img src="" alt="Full View" class="lightbox-img">
         <iframe src="" class="lightbox-frame"></iframe>
     </div>
 
     <footer>
         <div class="footer-socials">
-            <a href="mailto:your-email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://fiverr.com" target="_blank" title="Fiverr"><i class="fas fa-briefcase"></i></a>
+            <a href="mailto:imsyedhassanali@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/imsyedhassanali" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.fiverr.com/syed47" target="_blank" title="Fiverr"><i class="fas fa-briefcase"></i></a>
         </div>
-        <p class="footer-text">&copy; 2026 Syed Hassan Ali. Crafted with Precision.</p>
+        <p class="footer-text">© 2026 Syed Hassan Ali. Crafted with Precision.</p>
     </footer>
 
     <script>
-        // --- 1. UPDATED CREATIVE GRAVITY PLAYGROUND ---
+        // --- 1. CREATIVE GRAVITY PLAYGROUND ---
         const gameContainer = document.getElementById('gameContainer');
         const scoreSpan = document.querySelector('#scoreBoard span');
         const scoreBoard = document.getElementById('scoreBoard');
         let creativityScore = 0;
         let debrisArray = [];
-        // EXPANDED Design Tool Assets (Illustrator/Photoshop Tools)
+        
         const tools = [
             { icon: 'fa-figma', color: '#F24E1E' },
-            { icon: 'fa-pen-nib', color: '#fff' }, // Pen Tool
-            { icon: 'fa-layer-group', color: '#ff6b00' }, // Layers
-            { icon: 'fa-palette', color: '#ff00ff' }, // Colors
-            { icon: 'fa-bezier-curve', color: '#00ff88' }, // Vector
-            { icon: 'fa-crop-simple', color: '#ffe600' }, // Crop
-            { icon: 'fa-eye-dropper', color: '#00aaff' }, // Eye Dropper
-            { icon: 'fa-font', color: '#ffffff' }, // Type Tool
-            { icon: 'fa-eraser', color: '#ffaaaa' }, // Eraser
-            { icon: 'fa-paintbrush', color: '#ffcc00' }, // Brush
-            { icon: 'fa-vector-square', color: '#00aaff' }, // Shape
-            { icon: 'fa-arrow-pointer', color: '#ffffff' }, // Direct Selection
-            { icon: 'fa-wand-magic-sparkles', color: '#dddddd' }, // Magic Wand
-            { icon: 'fa-stamp', color: '#888888' }, // Clone Stamp
-            { icon: 'fa-fill-drip', color: '#ff0055' } // Paint Bucket
+            { icon: 'fa-pen-nib', color: '#fff' }, 
+            { icon: 'fa-layer-group', color: '#ff6b00' }, 
+            { icon: 'fa-palette', color: '#ff00ff' }, 
+            { icon: 'fa-bezier-curve', color: '#00ff88' }, 
+            { icon: 'fa-crop-simple', color: '#ffe600' }, 
+            { icon: 'fa-eye-dropper', color: '#00aaff' }, 
+            { icon: 'fa-font', color: '#ffffff' }, 
+            { icon: 'fa-eraser', color: '#ffaaaa' }, 
+            { icon: 'fa-paintbrush', color: '#ffcc00' }, 
+            { icon: 'fa-vector-square', color: '#00aaff' }, 
+            { icon: 'fa-arrow-pointer', color: '#ffffff' }, 
+            { icon: 'fa-wand-magic-sparkles', color: '#dddddd' }, 
+            { icon: 'fa-stamp', color: '#888888' }, 
+            { icon: 'fa-fill-drip', color: '#ff0055' } 
         ];
 
-        // Spawn a Floating Icon
         function spawnIcon() {
-            // Pick a random tool
             const tool = tools[Math.floor(Math.random() * tools.length)];
             const el = document.createElement('i');
             el.className = `fas ${tool.icon} float-icon`;
             
-            // Random start position (bottom)
             const startX = Math.random() * (window.innerWidth - 50);
-            const size = Math.random() * 2 + 1.5; // 1.5rem to 3.5rem
+            const size = Math.random() * 2 + 1.5; 
             
             el.style.left = `${startX}px`;
             el.style.top = `${window.innerHeight + 100}px`;
             el.style.fontSize = `${size}rem`;
             
-            // Interaction: DESTROY ON CLICK
             el.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopPropagation(); // Stop bubbling
+                e.stopPropagation(); 
                 createDebris(e.clientX, e.clientY, tool.color);
                 createSplatter(e.clientX, e.clientY, tool.color);
                 updateScore();
                 el.remove();
                 
-                // Respawn Logic: Keep density low by waiting a bit
                 setTimeout(spawnIcon, Math.random() * 3000 + 2000); 
             });
 
             gameContainer.appendChild(el);
 
-            // Animate moving up 
             let posY = window.innerHeight + 100;
-            // Constant smooth speed (not too fast, not too slow)
             const speed = Math.random() * 1.0 + 0.8;
             function move() {
                 if(!el.isConnected) return;
                 posY -= speed;
                 el.style.top = `${posY}px`;
                 
-                // If it goes off top, reset
                 if (posY < -100) {
                     el.remove();
-                    // Respawn immediately if it left screen naturally
                     spawnIcon();
                 } else {
                     requestAnimationFrame(move);
@@ -646,44 +653,37 @@
             requestAnimationFrame(move);
         }
 
-        // Initialize ONLY 3 icons to start (Low Density)
         for(let i=0; i<3; i++) {
-            setTimeout(spawnIcon, i * 2500); // Stagger them out
+            setTimeout(spawnIcon, i * 2500);
         }
 
-        // Physics: Gravity Debris
         function createDebris(x, y, color) {
             const particleCount = 8;
             for(let i=0; i<particleCount; i++) {
                 const p = document.createElement('div');
                 p.className = 'debris';
-                // Use tool color if you want colored debris, 
-                // or remove this line to use the Theme color defined in CSS .debris
-                // p.style.backgroundColor = color; 
                 
                 p.style.left = `${x}px`;
                 p.style.top = `${y}px`;
-                // Random velocity
+                
                 const vx = (Math.random() - 0.5) * 10;
-                const vy = (Math.random() - 0.5) * 10 - 5; // Upward burst initially
+                const vy = (Math.random() - 0.5) * 10 - 5; 
                 
                 gameContainer.appendChild(p);
                 debrisArray.push({ el: p, x, y, vx, vy, life: 1.0 });
             }
         }
 
-        // Physics Loop
         function updatePhysics() {
             debrisArray.forEach((p, index) => {
-                p.vy += 0.5; // Gravity
+                p.vy += 0.5; 
                 p.x += p.vx;
                 p.y += p.vy;
-                p.life -= 0.02; // Fade out
+                p.life -= 0.02; 
 
-                // Floor bounce
                 if(p.y > window.innerHeight) {
                     p.y = window.innerHeight;
-                    p.vy *= -0.6; // Lose energy
+                    p.vy *= -0.6; 
                 }
 
                 p.el.style.transform = `translate(${p.x - parseFloat(p.el.style.left)}px, ${p.y - parseFloat(p.el.style.top)}px)`;
@@ -698,7 +698,6 @@
         }
         requestAnimationFrame(updatePhysics);
 
-        // Splatter Effect (Static)
         function createSplatter(x, y, color) {
             const s = document.createElement('div');
             s.className = 'splatter';
@@ -706,11 +705,9 @@
             s.style.left = `${x}px`;
             s.style.top = `${y}px`;
             gameContainer.appendChild(s);
-            // Auto remove after animation
             setTimeout(() => s.remove(), 4000);
         }
 
-        // UPDATED LOGIC: +1 Point Only
         function updateScore() {
             creativityScore += 1;
             scoreSpan.innerText = creativityScore;
@@ -718,7 +715,6 @@
             setTimeout(() => scoreBoard.classList.remove('bump'), 200);
         }
 
-        // Mouse Trail Logic
         document.addEventListener('mousemove', (e) => {
             const trail = document.createElement('div');
             trail.className = 'cursor-trail';
@@ -754,7 +750,6 @@
         const lightboxFrame = lightbox.querySelector('.lightbox-frame');
         const closeBtn = document.querySelector('.close-lightbox');
 
-        // 3D Tilt Logic
         allCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -865,12 +860,11 @@
 
         generateNumbers();
 
-        // --- 3. THEME TOGGLE LOGIC (NEW) ---
+        // --- 3. THEME TOGGLE LOGIC ---
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = themeToggleBtn.querySelector('i');
         const htmlEl = document.documentElement;
 
-        // Check local storage for saved preference
         const savedTheme = localStorage.getItem('theme') || 'dark';
         htmlEl.setAttribute('data-theme', savedTheme);
         updateIcon(savedTheme);
@@ -893,6 +887,43 @@
                 themeIcon.classList.add('fa-sun');
             }
         }
+
+        // --- 4. NEW EMAILJS SEND LOGIC ---
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents page reload
+
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerText;
+            
+            // 1. Change button text to indicate loading
+            btn.innerText = 'Sending...';
+
+            // 2. Send the email via EmailJS
+            // *** IMPORTANT: REPLACE 'YOUR_SERVICE_ID' AND 'YOUR_TEMPLATE_ID' WITH ACTUAL CODES ***
+            emailjs.sendForm('service_ziutl0r', 'template_2xzqigm', this)
+                .then(function() {
+                    // 3. Success State
+                    btn.innerText = 'Message Sent!';
+                    btn.style.borderColor = '#00ff88'; // Green border
+                    btn.style.color = '#00ff88';       // Green text
+                    
+                    // Clear form fields
+                    document.getElementById('contact-form').reset();
+
+                    // Reset button style after 3 seconds
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.borderColor = '';
+                        btn.style.color = '';
+                    }, 3000);
+                    
+                }, function(error) {
+                    // 4. Error State
+                    console.log('FAILED...', error);
+                    btn.innerText = 'Error. Try Again.';
+                    alert("Failed to send message. Please check the console or your internet connection.");
+                });
+        });
     </script>
 
 </body>
